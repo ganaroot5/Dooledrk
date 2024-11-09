@@ -1,0 +1,59 @@
+# Find PDF files on the target domain
+site:domain.com filetype:pdf
+
+# Find Excel files on the target domain
+site:domain.com filetype:xls OR filetype:xlsx
+
+# Find Word documents on the target domain
+site:domain.com filetype:doc OR filetype:docx
+
+# Look for log files which may reveal sensitive information
+site:domain.com filetype:log
+
+# Look for backup or old files that might contain sensitive data
+site:domain.com filetype:bak OR filetype:old OR filetype:backup
+
+# Look for configuration files
+site:domain.com filetype:xml OR filetype:conf OR filetype:cnf OR filetype:cfg
+
+# Find pages with login portals
+site:domain.com inurl:login OR inurl:signin OR intitle:"login"
+
+# Find admin or restricted areas
+site:domain.com inurl:admin OR intitle:"admin"
+
+# Look for database dumps
+site:domain.com filetype:sql OR filetype:db OR filetype:mdb
+
+# Discover indexing of directories, which could reveal hidden files
+site:domain.com intitle:"index of" OR inurl:"/index of/"
+
+# Find exposed environment configuration files (e.g., .env for web apps)
+site:domain.com ext:env OR ext:json OR ext:config
+
+# Look for error pages or debugging information
+site:domain.com "Error" OR "Warning" OR "Fatal" 
+
+# Look for public access documents and spreadsheets
+site:domain.com inurl:"/public" filetype:pdf OR filetype:xls OR filetype:csv
+
+# Discover open webcams or IP cameras
+inurl:"/view/view.shtml" site:domain.com
+
+# Search for API keys or sensitive tokens in code repositories
+site:domain.com "api_key" OR "secret_key" OR "token" OR "password"
+
+# Discover publicly available documents with potential sensitive content
+site:domain.com intitle:"confidential" OR intitle:"proprietary"
+
+# Look for backup copies or compressed files which may contain sensitive data
+site:domain.com filetype:zip OR filetype:rar OR filetype:tar.gz OR filetype:7z
+
+# Discover default admin or setup pages
+site:domain.com inurl:admin OR inurl:setup OR inurl:install
+
+# Discover exposed network or IP information in device management pages
+site:domain.com inurl:"/manage/" OR inurl:"/control/" OR inurl:"/console/"
+
+# Find login portals on non-standard ports (might reveal staging or testing servers)
+site:domain.com inurl:8080 OR inurl:8443 OR inurl:3000
